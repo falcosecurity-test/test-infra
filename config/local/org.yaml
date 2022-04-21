@@ -27,7 +27,7 @@ orgs:
         description: Falco workflow & testing infrastructure
         has_projects: true
         has_wiki: false
-        homepage: https://prow.falco.org
+        homepage: https://4358-77-32-87-175.eu.ngrok.io
 
     teams:
       admins:
