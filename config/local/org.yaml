@@ -12,6 +12,8 @@ orgs:
       - zuc
       - maxgio92
       - pigeona
+      - leogr
+      - FedeDP
 
     members: []
 
@@ -45,3 +47,4 @@ orgs:
         privacy: secret
         repos:
           dodo: admin
+          test-infra: admin
