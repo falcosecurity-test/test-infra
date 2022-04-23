@@ -38,8 +38,6 @@ orgs:
           - zuc
           - maxgio92
         privacy: closed
-        repos:
-          advocacy: admin
       machine_users:
         description: bots
         maintainers:
