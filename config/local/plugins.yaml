@@ -313,3 +313,4 @@ external_plugins:
       endpoint: http://saymyname.default.svc.cluster.local:8787
       events:
         - issue_comment
+
