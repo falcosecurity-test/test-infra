@@ -74,111 +74,13 @@ branch-protection:
           branches: &default_branch_protection
             master:
               protect: true
-        charts:
-          required_status_checks:
-            contexts:
-              - "ci/circleci: lint-charts"
-              - "ci/circleci: lint-scripts"
-              - "ci/circleci: install-charts"
-          branches:
-            << : *default_branch_protection
-            gh-pages:
-              protect: true
-              enforce_admins: false # do not enforce all configured restrictions for admins, since our bot needs to push while the CI workflow is running
-              required_pull_request_reviews: # disable PR reviews since our bot needs to push while the CI workflow is running
-                require_code_owner_reviews: false
-                required_approving_review_count: 0
-        client-go:
-          branches: *default_branch_protection
-          required_status_checks:
-            contexts:
-              - "ci/circleci: test"
-        client-py:
-          branches: *default_branch_protection
-        client-rs:
-          branches: *default_branch_protection
-        community:
-          branches: *default_branch_protection
-        driverkit:
-          branches: *default_branch_protection
-        evolution:
-          branches: *default_branch_protection
-        event-generator:
-          branches: *default_branch_protection
-        falco:
-          required_pull_request_reviews:
-            required_approving_review_count: 2
-          required_status_checks:
-            contexts:
-              - "ci/circleci: integration"
-              - "ci/circleci: centos7"
-              - "ci/circleci: musl"
-          branches:
-            << : *default_branch_protection
-            "release/0.28.1":
-              protect: true
-        falcosidekick:
-          required_status_checks:
-            contexts:
-              - "ci/circleci: lint"
-              - "ci/circleci: test"
-              - "ci/circleci: build-image"
-          branches: *default_branch_protection
-        falcosidekick-ui:
-          required_status_checks:
-            contexts:
-              - "ci/circleci: lint"
-              - "ci/circleci: test"
-              - "ci/circleci: build-image"
-          branches: *default_branch_protection
-        falco-exporter:
-          branches: *default_branch_protection
-          required_status_checks:
-            contexts:
-              - "ci/circleci: test"
-        falcoctl:
-          branches: *default_branch_protection
-        falco-website:
-          branches:
-            << : *default_branch_protection
-            v0.26:
-              protect: true
-            v0.27:
-              protect: true
-            v0.28:
-              protect: true
-            v0.29:
-              protect: true
-            v0.30:
-              protect: true
-          required_status_checks:
-            contexts:
-              - "netlify/falcosecurity-test/deploy-preview"
-        katacoda-scenarios:
-          branches: *default_branch_protection
-        kilt:
-          branches: *default_branch_protection
-        libs:
-          required_pull_request_reviews:
-            required_approving_review_count: 2
-          branches: *default_branch_protection
-        pdig:
-          branches: *default_branch_protection
-        plugins:
-          branches:
-            main:
-              protect: true
-        plugin-sdk-cpp:
-          branches: *default_branch_protection
-        plugin-sdk-go:
-          branches: *default_branch_protection
-        template-repository:
-          branches: *default_branch_protection
         test-infra:
           branches: *default_branch_protection
           required_status_checks:
             contexts:
               - "check-prow-config"
+        dodo:
+          branches: *default_branch_protection
 
 log_level: debug
 
@@ -197,21 +99,6 @@ tide:
     # Query for repos that DON'T need release notes
     - repos:
         - falcosecurity-test/dodo
-        - falcosecurity-test/.github
-        - falcosecurity-test/charts
-        - falcosecurity-test/community
-        - falcosecurity-test/driverkit
-        - falcosecurity-test/event-generator
-        - falcosecurity-test/evolution
-        - falcosecurity-test/falco-exporter
-        - falcosecurity-test/falco-website
-        - falcosecurity-test/falcosidekick
-        - falcosecurity-test/falcosidekick-ui
-        - falcosecurity-test/katacoda-scenarios
-        - falcosecurity-test/pdig
-        - falcosecurity-test/plugin-sdk-cpp
-        - falcosecurity-test/plugins
-        - falcosecurity-test/template-repository
         - falcosecurity-test/test-infra
       labels: &default_required_labels
         - approved
@@ -222,25 +109,5 @@ tide:
         - do-not-merge/hold
         - do-not-merge/invalid-owners-file
         - do-not-merge/work-in-progress
-        - needs-rebase
-      reviewApprovedRequired: true
-
-    # Query for repos that DO need release notes (should be in sync with repos that adopt `release-note` plugin)
-    - repos:
-        - falcosecurity-test/client-go
-        - falcosecurity-test/client-py
-        - falcosecurity-test/client-rs
-        - falcosecurity-test/falco
-        - falcosecurity-test/falcoctl
-        - falcosecurity-test/kilt
-        - falcosecurity-test/libs
-        - falcosecurity-test/plugin-sdk-go
-      labels: *default_required_labels
-      missingLabels:
-        - do-not-merge
-        - do-not-merge/hold
-        - do-not-merge/invalid-owners-file
-        - do-not-merge/work-in-progress
-        - do-not-merge/release-note-label-needed
         - needs-rebase
       reviewApprovedRequired: true
