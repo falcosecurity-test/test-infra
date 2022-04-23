@@ -38,6 +38,9 @@ orgs:
           - zuc
           - maxgio92
         privacy: closed
+        repos:
+          dodo: admin
+          test-infra: admin
       machine_users:
         description: bots
         maintainers:
