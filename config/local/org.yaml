@@ -12,6 +12,8 @@ orgs:
       - zuc
       - maxgio92
       - pigeona
+      - leogr
+      - FedeDP
 
     members: []
 
@@ -22,6 +24,12 @@ orgs:
         description: Cloud Native Runtime Security
         has_projects: true
         has_wiki: false
+      test-infra:
+        allow_merge_commit: false
+        description: Falco workflow & testing infrastructure
+        has_projects: true
+        has_wiki: false
+        homepage: https://4358-77-32-87-175.eu.ngrok.io
 
     teams:
       admins:
@@ -39,3 +47,4 @@ orgs:
         privacy: secret
         repos:
           dodo: admin
+          test-infra: admin

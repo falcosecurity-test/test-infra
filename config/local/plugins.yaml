@@ -3,7 +3,7 @@ approve:
       - falcosecurity-test
     lgtm_acts_as_approve: true
     require_self_approval: false
-    commandHelpLink: https://prow.falco.local/command-help
+    commandHelpLink: https://547d-77-32-87-175.eu.ngrok.io/command-help
   - repos:
       - falcosecurity-test/falco
       - falcosecurity-test/libs
@@ -313,3 +313,4 @@ external_plugins:
       endpoint: http://saymyname.default.svc.cluster.local:8787
       events:
         - issue_comment
+
