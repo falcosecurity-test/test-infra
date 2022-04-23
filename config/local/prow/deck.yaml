@@ -131,7 +131,7 @@ spec:
         # - --github-token-path=/etc/github/oauth
         - --github-endpoint=http://ghproxy
         - --github-endpoint=https://api.github.com
-        - --redirect-http-to=prow.falco.local
+        - --redirect-http-to=547d-77-32-87-175.eu.ngrok.io
         - --allow-insecure
         ports:
           - name: http
