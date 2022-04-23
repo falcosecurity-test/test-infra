@@ -39,7 +39,8 @@ orgs:
           - maxgio92
         privacy: closed
         repos:
-          advocacy: admin
+          dodo: admin
+          test-infra: admin
       machine_users:
         description: bots
         maintainers:
